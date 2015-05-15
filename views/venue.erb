@@ -1,0 +1,22 @@
+<h1>Venue: <%= @venue.venue_name %><h1>
+
+  <h3>Bands:</h3>
+
+  <% if @venue.bands.any?() %>
+  <% @venue.bands.each() do |band| %>
+  <ul>
+    <li><a href='/band/<%=band.id %>'><%= band.name() %></a></li>
+  </ul>
+  <%end%>
+  <%else%>
+  <p>There are no bands scheduled at this time</p>
+  <%end%>
+  <p><a href="/">Back to Home Page</a></p>
+  <div>
+    <form action="/venue/<%= @venue.id() %>" method="post">
+      <label for="deleted">Remove this venue: </label>
+      <input name="_method" type="hidden" value="delete" id="deleted">
+
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>

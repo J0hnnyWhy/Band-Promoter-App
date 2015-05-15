@@ -2,10 +2,15 @@ require('spec_helper')
 
 describe(Band) do
     it('has many venues') do
-      band = Band.create(name: 'red')
-      venue1 = Venue.create(venue_name: 'hilton', band_ids: [band.id])
-      venue2 = Venue.create(venue_name: 'ramada', band_ids: [band.id])
+      band = Band.create(name: 'The Blob')
+      venue1 = Venue.create(venue_name: 'dirt field', band_ids: [band.id])
+      venue2 = Venue.create(venue_name: 'rooftop', band_ids: [band.id])
       expect(band.venues).to(eq([venue1, venue2]))
+    end
+
+    it("converts the name to uppercase") do
+      band = Band.create({:name => "finagle the buffalo"})
+      expect(band.name()).to(eq("FINAGLE THE BUFFALO"))
     end
 
 

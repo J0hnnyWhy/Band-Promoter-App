@@ -27,7 +27,7 @@ describe('Band Promoter App', type: :feature) do
   describe('delete a band') do
     it('allow a user to remove a band') do
       Band.create(name: 'The Appetizers')
-      visit('/band/id')
+      visit('/band/:id')
       click_button('Delete')
       expect(page).to(have_content(''))
     end

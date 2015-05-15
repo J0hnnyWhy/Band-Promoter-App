@@ -17,3 +17,21 @@
     <input id='name' name='name' type='text'>
   <button type='submit' class='btn btn-info'>Add Band</button>
 </form>
+
+<h3>Here are all the venues:</h3>
+
+<% if @venues.any?() %>
+<% @venues.each() do |venue| %>
+<ul>
+  <li><a href='/venue/<%=venue.id()%>'> <%=venue.venue_name()%></a></li>
+</ul>
+<%end%>
+<%else %>
+<p> You have no venues!</p>
+<%end%>
+
+<form action='/venue_add/' method='post'>
+  <label for='venue_name'>Category Name</label>
+  <input id='venue_name' name='venue_name' type='text'>
+  <button type='submit' class='btn btn-info'>Add Venue</button>
+</form>

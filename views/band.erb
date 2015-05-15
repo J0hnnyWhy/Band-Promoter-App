@@ -11,12 +11,31 @@
 <%else%>
 <p>There are no venues scheduled at this time</p>
 <%end%>
-<p><a href="/">Back to Home Page</a></p>
-<div>
-  <form action="/band/<%= @band.id() %>" method="post">
-    <label for="deleted">Remove this band: </label>
-    <input name="_method" type="hidden" value="delete" id="deleted">
 
-    <button type="submit" class="btn btn-danger">Delete</button>
-  </form>
+<h3>Add a Venue to this Band:</h3>
+
+<form action='/band_venue_add/' method='post'>
+  <input type='hidden' name='band_id'  value=<%= @band.id %>
+  <label for='venue_add'>Add a Venue to this Band:</label>
+  <input id='venue_add' name='venue_add' type='text'>
+  <button type='submit' class='btn btn-info'>Add</button>
+</form>
+
+
+<form action='/band/<%= @band.id() %>' method='post'>
+  <input type='hidden' name='_method'  value='patch'>
+  <label for='update'>Update this Band:</label>
+  <input id='update' name='update' type='text' placeholder="enter new name">
+  <button type='submit' class='btn btn-info'>Update</button>
+</form>
+
+<div>
+<form action="/band/<%= @band.id() %>" method="post">
+  <label for="deleted">Remove this band: </label>
+  <input name="_method" type="hidden" value="delete" id="deleted">
+
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
 </div>
+
+<p><a href="/">Back to Home Page</a></p>
