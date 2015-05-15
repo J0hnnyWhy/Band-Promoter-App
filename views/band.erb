@@ -11,4 +11,12 @@
 <%else%>
 <p>There are no venues scheduled at this time</p>
 <%end%>
-<p><a href="/">Back to Home Page</a></p> 
+<p><a href="/">Back to Home Page</a></p>
+<div>
+  <form action="/band/<%= @band.id() %>" method="post">
+    <label for="deleted">Remove this band: </label>
+    <input name="_method" type="hidden" value="delete" id="deleted">
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>

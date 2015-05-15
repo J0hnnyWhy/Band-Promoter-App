@@ -24,3 +24,10 @@ post('/band_add/') do
   @bands = Band.all()
   erb(:index)
 end
+
+delete('/band/:id') do
+  @band = Band.find(params.fetch('id'))
+  @band.delete()
+  @bands = Band.all()
+  erb(:index)
+end

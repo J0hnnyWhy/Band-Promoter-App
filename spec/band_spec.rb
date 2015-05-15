@@ -1,6 +1,13 @@
 require('spec_helper')
 
 describe(Band) do
+    it('has many venues') do
+      band = Band.create(name: 'red')
+      venue1 = Venue.create(venue_name: 'hilton', band_ids: [band.id])
+      venue2 = Venue.create(venue_name: 'ramada', band_ids: [band.id])
+      expect(band.venues).to(eq([venue1, venue2]))
+    end
+
 
   it('validates presence of name') do
     ingredient = Band.new(name: '')
