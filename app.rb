@@ -61,8 +61,8 @@ get('/venue/:id') do
 end
 
 post('/venue_add/') do
-  @name = params.fetch('venue_name')
-  @venue = Venue.create({:venue_name => @name})
+  @venue_name = params.fetch('venue_name')
+  @venue = Venue.create({:venue_name => @venue_name})
   @venues = Venue.all()
   @bands = Band.all()
   erb(:index)

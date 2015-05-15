@@ -7,10 +7,10 @@ class Venue < ActiveRecord::Base
     where({done=> false})
   end)
 
-  private
+private
 
 
   define_method(:capitalize_name) do
-    self.venue_name=(venue_name().capitolize())
+    self.venue_name=venue_name().capitalize()
   end
 end
